@@ -1,0 +1,33 @@
+package stepDefinitions;
+
+import java.util.ArrayList;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.restassured.response.Response;
+import io.restassured.response.ResponseOptions;
+import utilities.APIConstant;
+import utilities.RestAssuredExtension;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.MatcherAssert.assertThat;
+
+public class stepDef {
+	
+	public static ResponseOptions<Response> response;
+	public static RestAssuredExtension restAssuredExtention;
+	
+	@Given("Perform GET operation to fetch all users")
+	public void perform_get_operation_to_fetch_all_users() {
+		restAssuredExtention = new RestAssuredExtension("/public/v2/users", APIConstant.ApiMethods.GET);
+		response = restAssuredExtention.ExecuteAPI();
+		ArrayList<Integer> users = response.getBody().jsonPath().get("id");
+		assertThat(users.size(), equalTo(10));
+		assertThat(response.getStatusCode(), equalTo(200));
+		System.out.println(users.size());
+	}
+	
+
+
+}

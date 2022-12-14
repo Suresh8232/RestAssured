@@ -1,0 +1,35 @@
+package appHooks;
+import java.util.Properties;
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.restassured.builder.RequestSpecBuilder;
+import utilities.ConfigReader;
+
+
+public class ApplicationHooks {
+	
+
+	private ConfigReader configReader;
+	private RequestSpecBuilder builder = new RequestSpecBuilder();
+	Properties prop;
+	
+//	@Before(order = 0) //Method to read properties
+//	public void getProperty() {
+//		configReader = new ConfigReader();
+//		prop = configReader.init_prop();
+//	}
+	
+	@Before
+	public void Setup() {
+		System.out.println("Setup Method");
+	}
+	
+	@After
+	public void TearDown() {
+		System.out.println("Tear down Method");
+	}
+	
+
+
+}

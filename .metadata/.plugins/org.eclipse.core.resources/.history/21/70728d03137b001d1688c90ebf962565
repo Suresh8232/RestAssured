@@ -1,0 +1,55 @@
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.restassured.response.Response;
+import io.restassured.response.ResponseOptions;
+import utilities.APIConstant;
+import utilities.RestAssuredExtension;
+
+public class stepDef {
+	
+	public static ResponseOptions<Response> response;
+	public static RestAssuredExtension restAssuredExtention;
+	
+	@Given("Perform GET operation to fetch all users")
+	public void perform_get_operation_to_fetch_all_users() {
+		restAssuredExtention = new RestAssuredExtension("/public/v2/users", APIConstant.ApiMethods.GET);
+		response = restAssuredExtention.ExecuteAPI();
+		System.out.println(response.getBody().jsonPath().);
+	    
+	}
+//	@When("Perform POST operation to create a new users")
+//	public void perform_post_operation_to_create_a_new_users() {
+//	    // Write code here that turns the phrase above into concrete actions
+//	    throw new io.cucumber.java.PendingException();
+//	}
+//
+//	@Then("Perform GET operation to fetch newly created user")
+//	public void perform_get_operation_to_fetch_newly_created_user() {
+//	    // Write code here that turns the phrase above into concrete actions
+//	    throw new io.cucumber.java.PendingException();
+//	}
+//	@When("Perform PUT operation to update new user")
+//	public void perform_put_operation_to_update_new_user() {
+//	    // Write code here that turns the phrase above into concrete actions
+//	    throw new io.cucumber.java.PendingException();
+//	}
+//	@Then("Perform GET operation to fetch updated user")
+//	public void perform_get_operation_to_fetch_updated_user() {
+//	    // Write code here that turns the phrase above into concrete actions
+//	    throw new io.cucumber.java.PendingException();
+//	}
+//	@Then("Perform DELETE operation to delete current user")
+//	public void perform_delete_operation_to_delete_current_user() {
+//	    // Write code here that turns the phrase above into concrete actions
+//	    throw new io.cucumber.java.PendingException();
+//	}
+//	@Then("Perform GET operation to fetch deleted user")
+//	public void perform_get_operation_to_fetch_deleted_user() {
+//	    // Write code here that turns the phrase above into concrete actions
+//	    throw new io.cucumber.java.PendingException();
+//	}
+
+}

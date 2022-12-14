@@ -1,0 +1,28 @@
+package appHooks;
+import java.util.Properties;
+import io.cucumber.java.Before;
+import io.restassured.builder.RequestSpecBuilder;
+import utilities.ConfigReader;
+
+
+public class ApplicationHooks {
+	
+
+	private ConfigReader configReader;
+	private RequestSpecBuilder builder = new RequestSpecBuilder();
+	Properties prop;
+	
+//	@Before(order = 0) //Method to read properties
+//	public void getProperty() {
+//		configReader = new ConfigReader();
+//		prop = configReader.init_prop();
+//	}
+	
+	@Before(order = 0) 
+	public void Setup() {
+		builder.addHeader("Authorization", "Bearer 9253e4a0bf1fba5d7bcacf192dda9e5fe06287afb598c199b979afef727856f1");
+	}
+	
+
+
+}

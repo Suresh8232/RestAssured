@@ -1,0 +1,25 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 11.235 s <<< FAILURE! - in TestSuite
+runScenario(testRunner.TestRunner)  Time elapsed: 7.216 s  <<< FAILURE!
+io.cucumber.core.exception.CucumberException: Failed to instantiate class stepDefinitions.LoginPageSteps
+Caused by: java.lang.reflect.InvocationTargetException
+Caused by: java.lang.Error: 
+Unresolved compilation problems: 
+	The type java.util.function.Function cannot be resolved. It is indirectly referenced from required .class files
+	The method until(Function<? super WebDriver,V>) from the type FluentWait<WebDriver> refers to the missing type Function
+
+
+runScenario(testRunner.TestRunner)  Time elapsed: 1.701 s  <<< FAILURE!
+io.cucumber.core.exception.CucumberException: Failed to instantiate class stepDefinitions.LoginPageSteps
+Caused by: java.lang.reflect.InvocationTargetException
+Caused by: java.lang.Error: 
+Unresolved compilation problems: 
+	The type java.util.function.Function cannot be resolved. It is indirectly referenced from required .class files
+	The method until(Function<? super WebDriver,V>) from the type FluentWait<WebDriver> refers to the missing type Function
+
+
+tearDownClass(testRunner.TestRunner)  Time elapsed: 2.191 s  <<< FAILURE!
+java.lang.reflect.InaccessibleObjectException: Unable to make field private java.lang.String java.lang.Throwable.detailMessage accessible: module java.base does not "opens java.lang" to unnamed module @62e136d3
+

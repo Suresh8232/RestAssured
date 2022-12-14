@@ -1,0 +1,34 @@
+package appHooks;
+
+import java.util.Properties;
+import baseClass.DriverFactory;
+import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import utilities.ConfigReader;
+import utilities.RestAssuredExtension;
+
+public class ApplicationHooks {
+	
+
+	private ConfigReader configReader;
+	Properties prop;
+	
+	@Before(order = 0) //Method to read properties
+	public void getProperty() {
+		configReader = new ConfigReader();
+		prop = configReader.init_prop();
+	}
+	
+	@Before(order = 1) 
+	public void Setup() {
+		RestAssuredExtension restAssuredExtension = new RestAssuredExtension();
+	}
+	
+	@After(order = 0) 
+	public void quitBrowser( ) {
+		DriverFactory.getInstance().removeDriver();
+	}
+
+}

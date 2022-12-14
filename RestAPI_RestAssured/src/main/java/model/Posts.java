@@ -1,0 +1,14 @@
+package model;
+
+
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+public class Posts {
+    private String name;
+    private String gender;
+    private String email;
+    private String status;
+    private int id;
+}

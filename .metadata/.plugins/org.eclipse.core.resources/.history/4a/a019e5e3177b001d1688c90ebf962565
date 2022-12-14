@@ -1,0 +1,19 @@
+Feature: GoRest Sample Demo
+
+@Regression
+Scenario: Perform GoRest End to End flow
+	Given Perform GET operation to fetch all users for url "/public/v2/users"
+	When Perform POST operation for "/public/v2/users" to create new user with body as
+	| name 		| gender | email            | status |
+  | Suresh  | male 	 | suresh@gmail.com | active |
+	Then Perform GET operation to fetch all users for url "/public/v2/users"
+	And Perform GET operation on "/public/v2/users/{id}" to fetch newly created user
+	When Perform PUT operation on "/public/v2/users/{id}" with body
+	| name 		| gender | email            | status |
+  | Suresh123  | male 	 | suresh123@gmail.com | inactive |
+	Then Perform GET operation on "/public/v2/users/{id}" to get user details
+	And Perform DELETE operation on "/public/v2/users/{id}"
+	Then Perform GET operation to fetch deleted "/public/v2/users/{id}"
+	And Perform GET operation to fetch all users for url "/public/v2/users"
+	 
+
